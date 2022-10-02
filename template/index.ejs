@@ -1,0 +1,42 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="utf-8" />
+    <meta name="viewport" content="width=device-width, initial-scale= 1.0" />
+    <link rel="stylesheet" href="index.css" />
+  </head>
+  <body>
+    <div class="content">
+      <form method="POST" action="/delete" enctype="multipart/form-data">
+        <table border="1">
+          <tr>
+            <th>STT</th>
+            <th>Tên Bài Báo</th>
+            <th>Tên Nhóm Tác Giả</th>
+            <th>Chỉ số IBN</th>
+            <th>Số Trang</th>
+            <th>Năm xuất bản</th>
+            <th>chọn</th>
+          </tr>
+          <% for (let i=0; i < BaiBao.length;i++){ %>
+          <tr>
+            <td><%= i %></td>
+            <td><%=BaiBao[i].tenBaiBao %></td>
+            <td><%=BaiBao[i].tenNhomTacGia %></td>
+            <td><%=BaiBao[i].chiSoIBN %></td>
+            <td><%=BaiBao[i].soTrang %></td>
+            <td><%=BaiBao[i].namXuatBan %></td>
+
+            <td><input type="checkbox" name="<%=BaiBao[i].id%>" /></td>
+          </tr>
+
+          <% } %>
+        </table>
+        <input type="submit" value="Delete" />
+      </form>
+      <form action="/next">
+        <input type="submit" value="Tác Vụ">
+      </form>
+    </div>
+  </body>
+</html>
